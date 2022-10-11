@@ -26,16 +26,15 @@ APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
 APPVERSION_N     = 0
-APPVERSION_P     = 0
+APPVERSION_P     = 4
 APPVERSION       = $(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)
 
 APPNAME = "QuickSwap"
 
-#prepare hsm generation
-ifeq ($(TARGET_NAME), TARGET_NANOX)
-ICONNAME=icons/nanox_app_quickswap.gif
-else
+ifeq ($(TARGET_NAME), TARGET_NANOS)
 ICONNAME=icons/nanos_app_quickswap.gif
+else
+ICONNAME=icons/nanox_app_quickswap.gif
 endif
 
 ################
