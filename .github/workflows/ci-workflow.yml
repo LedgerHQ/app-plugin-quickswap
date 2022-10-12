@@ -112,11 +112,7 @@ jobs:
     needs: [job_nano_build, job_build_ethereum]
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: |
-          id
-          echo $HOME
-          echo $DISPLAY
+      
       - name: Checkout
         uses: actions/checkout@v2
       - run: sudo apt-get update -y && sudo apt-get install -y libusb-1.0.0 libudev-dev
@@ -127,9 +123,15 @@ jobs:
       - name: Install yarn
         run: |
           npm install -g yarn
+
+      - name: Download binaries
+        uses: actions/download-artifact@v2
+        with:
+         name: binaries
+         path: tests/elfs
+
       - name: Build/Install build js deps
         run: |
-          cd tests && yarn install
       - name: Run zemu tests
         run: |
           cd tests && yarn test
