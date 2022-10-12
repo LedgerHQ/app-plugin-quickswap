@@ -132,6 +132,7 @@ jobs:
 
       - name: Build/Install build js deps
         run: |
+          cd tests && yarn install
       - name: Run zemu tests
         run: |
           cd tests && yarn test
