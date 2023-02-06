@@ -18,8 +18,8 @@ const Resolve = require("path").resolve;
 const NANOS_ETH_PATH = Resolve("elfs/ethereum_nanos.elf");
 const NANOX_ETH_PATH = Resolve("elfs/ethereum_nanox.elf");
 
-const NANOS_PLUGIN_PATH = Resolve("elfs/quickswap_nanos.elf");
-const NANOX_PLUGIN_PATH = Resolve("elfs/quickswap_nanox.elf");
+const NANOS_PLUGIN_PATH = Resolve("elfs/plugin_nanos.elf");
+const NANOX_PLUGIN_PATH = Resolve("elfs/plugin_nanox.elf");
 
 const NANOS_PLUGIN = { QuickSwap: NANOS_PLUGIN_PATH };
 const NANOX_PLUGIN = { QuickSwap: NANOX_PLUGIN_PATH };
@@ -77,7 +77,7 @@ function txFromEtherscan(rawTx) {
  * Emulation of the device using zemu
  * @param {string} device name of the device to emulate (nanos, nanox)
  * @param {function} func
- * @param {boolean} signed the plugin is already signed 
+ * @param {boolean} signed the plugin is already signed
  * @returns {Promise}
  */
 function zemu(device, func, testNetwork, signed = false) {
