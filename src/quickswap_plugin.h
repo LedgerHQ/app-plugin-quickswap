@@ -102,10 +102,3 @@ typedef struct quickswap_parameters_t {
     // total : 148b + 12b = 160 bytes : no bytes left
 
 } quickswap_parameters_t;
-
-void handle_init_contract(void *parameters);
-void handle_provide_parameter(void *parameters);
-void handle_query_contract_ui(void *parameters);
-void handle_finalize(void *parameters);
-void handle_provide_token(void *parameters);
-void handle_query_contract_id(void *parameters);

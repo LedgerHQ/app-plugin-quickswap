@@ -1,7 +1,6 @@
 #include "quickswap_plugin.h"
 
-void handle_finalize(void *parameters) {
-    ethPluginFinalize_t *msg = (ethPluginFinalize_t *) parameters;
+void handle_finalize(ethPluginFinalize_t *msg) {
     quickswap_parameters_t *context = (quickswap_parameters_t *) msg->pluginContext;
 
     if (context->valid && context->next_param == NONE) {
