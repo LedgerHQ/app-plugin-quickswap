@@ -1,7 +1,6 @@
 #include "quickswap_plugin.h"
 
-void handle_provide_token(void *parameters) {
-    ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
+void handle_provide_token(ethPluginProvideInfo_t *msg) {
     quickswap_parameters_t *context = (quickswap_parameters_t *) msg->pluginContext;
 
     PRINTF("QUICKSWAP plugin provide token: 0x%p, 0x%p\n",

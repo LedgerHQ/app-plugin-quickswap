@@ -229,8 +229,7 @@ static void handle_add_remove_liquidity_eth(ethPluginProvideParameter_t *msg,
     }
 }
 
-void handle_provide_parameter(void *parameters) {
-    ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
+void handle_provide_parameter(ethPluginProvideParameter_t *msg) {
     quickswap_parameters_t *context = (quickswap_parameters_t *) msg->pluginContext;
 
     msg->result = ETH_PLUGIN_RESULT_OK;
