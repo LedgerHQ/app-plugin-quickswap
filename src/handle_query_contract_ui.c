@@ -33,8 +33,8 @@ static bool set_sent_amount_eth(ethQueryContractUI_t *msg, quickswap_parameters_
         strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
     }
 
-    return amountToString(msg->pluginSharedRO->txContent->value.value,
-                          msg->pluginSharedRO->txContent->value.length,
+    return amountToString(msg->txContent->value.value,
+                          msg->txContent->value.length,
                           context->decimals_sent,
                           context->ticker_sent,
                           msg->msg,
@@ -47,8 +47,8 @@ static bool set_sent_amount_eth_max(ethQueryContractUI_t *msg, quickswap_paramet
         strlcpy(context->ticker_sent, msg->network_ticker, sizeof(context->ticker_sent));
     }
 
-    return amountToString(msg->pluginSharedRO->txContent->value.value,
-                          msg->pluginSharedRO->txContent->value.length,
+    return amountToString(msg->txContent->value.value,
+                          msg->txContent->value.length,
                           context->decimals_sent,
                           context->ticker_sent,
                           msg->msg,
