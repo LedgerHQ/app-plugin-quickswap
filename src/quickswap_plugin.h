@@ -101,3 +101,7 @@ typedef struct quickswap_parameters_t {
     // total : 148b + 12b = 160 bytes : no bytes left
 
 } quickswap_parameters_t;
+
+// Check that the plugin context structure will fit in the ethereum allocated memory.
+// Do not remove!
+ASSERT_SIZEOF_PLUGIN_CONTEXT(quickswap_parameters_t);
