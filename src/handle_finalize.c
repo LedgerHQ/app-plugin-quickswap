@@ -1,7 +1,6 @@
 #include "quickswap_plugin.h"
 
-void handle_finalize(void *parameters) {
-    ethPluginFinalize_t *msg = (ethPluginFinalize_t *) parameters;
+void handle_finalize(ethPluginFinalize_t *msg) {
     quickswap_parameters_t *context = (quickswap_parameters_t *) msg->pluginContext;
 
     if (context->valid && context->next_param == NONE) {
@@ -19,8 +18,7 @@ void handle_finalize(void *parameters) {
                    context->contract_address_sent);
 
             // The user is not swapping ETH, so make sure there's no ETH being sent in this tx.
-            if (!allzeroes(msg->pluginSharedRO->txContent->value.value,
-                           msg->pluginSharedRO->txContent->value.length)) {
+            if (!allzeroes(msg->txContent->value.value, msg->txContent->value.length)) {
                 PRINTF("ETH attached to tx when token being swapped is %.*H\n",
                        sizeof(context->contract_address_sent),
                        context->contract_address_sent);

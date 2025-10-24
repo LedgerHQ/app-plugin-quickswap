@@ -56,11 +56,7 @@ static void handle_token_sent_eth(quickswap_parameters_t *context) {
 // Copy amount sent parameter to amount_sent
 static void handle_value_sent(const ethPluginProvideParameter_t *msg,
                               quickswap_parameters_t *context) {
-    ethPluginSharedRO_t *pluginSharedRO = msg->pluginSharedRO;
-
-    copy_parameter(context->amount_sent,
-                   pluginSharedRO->txContent->value.value,
-                   pluginSharedRO->txContent->value.length);
+    copy_parameter(context->amount_sent, msg->txContent->value.value, msg->txContent->value.length);
 }
 
 static void handle_swap_exact_tokens(ethPluginProvideParameter_t *msg,
@@ -229,8 +225,7 @@ static void handle_add_remove_liquidity_eth(ethPluginProvideParameter_t *msg,
     }
 }
 
-void handle_provide_parameter(void *parameters) {
-    ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
+void handle_provide_parameter(ethPluginProvideParameter_t *msg) {
     quickswap_parameters_t *context = (quickswap_parameters_t *) msg->pluginContext;
 
     msg->result = ETH_PLUGIN_RESULT_OK;
